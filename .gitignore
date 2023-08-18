@@ -1,0 +1,27 @@
+**/node_modules
+**/envs
+**/*.log
+**/.DS_Store
+**/.env*
+**/logs/
+**/certs/
+__ignore__
+.env*
+dist
+.vscode
+
+node_modules
+
+# apps/**/Dockerfile
+# apps/**/docker-compose.yaml
+apps/**/.dockerignore
+
+.DS_Store
+.cache-pnpm
+.http
+.cache-eslint
+.dockerignore
+
+# Dockerfile
+package-lock.json
+# docker-compose.yaml
