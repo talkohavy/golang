@@ -21,7 +21,7 @@ function RepoList() {
   return (
     <>
       <PageHeader />
-      <div className='tbody-container'></div>
+      <div className='my-0 mx-16'></div>
     </>
   );
 }
