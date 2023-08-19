@@ -1,14 +1,7 @@
 .repo-container {
   width: 100vw;
-  max-width: 100%; /* added */
-}
-
-.upperline {
-  border-top: 2px solid #8eb8d8;
-}
-
-.tbody-container {
-  margin: 0 4rem;
+  max-width: 100%;
+  /* added */
 }
 
 .table-body {
