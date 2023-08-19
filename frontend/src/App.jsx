@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import GitHubReposPage from './pages/GitHubReposPage';
-import PageNotFound from './pages/PageNotFound';
-import TvShowsPage from './pages/TvShowsPage';
+
+const GitHubReposPage = lazy(() => import('./pages/GitHubReposPage'));
+const TvShowsPage = lazy(() => import('./pages/TvShowsPage'));
+const PageNotFound = lazy(() => import('./pages/PageNotFound'));
 
 function App() {
   return (
-    <div>
+    <Suspense>
       <Routes>
         <Route path='/index.html' element={<GitHubReposPage />} />
         <Route path='/' element={<GitHubReposPage />} />
@@ -14,7 +15,7 @@ function App() {
 
         <Route path='*' element={<PageNotFound />} />
       </Routes>
-    </div>
+    </Suspense>
   );
 }
 

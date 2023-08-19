@@ -1,5 +1,1 @@
-import React from 'react';
-
-export default function GitHubReposPage() {
-  return <div>GitHubReposPage</div>;
-}
+export { default } from './RepoList';

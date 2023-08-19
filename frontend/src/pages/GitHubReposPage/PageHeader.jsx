@@ -1,6 +1,6 @@
 import React from 'react';
 import { IoLogoGithub } from 'react-icons/io';
-import '../bootstrap';
+import '../../bootstrap';
 
 function PageHeader() {
   return (

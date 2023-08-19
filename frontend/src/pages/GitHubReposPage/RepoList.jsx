@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import { createColumnHelper } from '@tanstack/react-table';
-import AnchorLink from './AnchorLink';
-import Input from './Input';
+import AnchorLink from '../../components/AnchorLink';
+import Input from '../../components/Input';
+import BasicTable from '../../components/tables/BasicTable';
+import TableFooter from '../../components/tables/DefaultTableFooter';
 import PageHeader from './PageHeader';
-import BasicTable from './tables/BasicTable';
-import TableFooter from './tables/DefaultTableFooter';
 
 /**
  * @type { import('@tanstack/react-table').ColumnHelper<
@@ -39,12 +39,12 @@ function RepoList() {
   const [searchText, setSearchText] = useState('');
   const [repoList, setRepoList] = useState([]);
 
-  /** @type { import('./tables/types').DefaultColumn } */
+  /** @type { import('../../components/tables/types').DefaultColumn } */
   const defaultColumn = useMemo(() => ({ enableSorting: true, enableResizing: false, meta: { align: 'left' } }), []);
 
   // TODO: - how do we fetch repositories from the API?
   useEffect(() => {
-    const fetchRepos = async () => axios.get('http://localho1st:8000/repositories');
+    const fetchRepos = async () => axios.get('http://localhost:8000/repositories');
 
     fetchRepos()
       .then(({ data }) => setRepoList(data))
