@@ -52,7 +52,7 @@ function RepoList() {
   }, []);
 
   return (
-    <>
+    <div className='flex flex-1 flex-col p-10 gap-y-5'>
       <PageHeader />
       <div className='my-0 mx-16'></div>
 
@@ -73,7 +73,7 @@ function RepoList() {
         setSearchText={setSearchText}
         renderTableFooter={(props) => <TableFooter {...props} />}
       />
-    </>
+    </div>
   );
 }
 

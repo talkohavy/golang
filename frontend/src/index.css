@@ -14,16 +14,6 @@
 }
 
 @layer base {
-  #root {
-    @apply h-full;
-    @apply w-full;
-    @apply max-w-7xl;
-    @apply mx-auto;
-    @apply my-0;
-    @apply p-8;
-    @apply text-center;
-  }
-
   html {
     @apply h-full;
     @apply text-sm;
@@ -44,6 +34,11 @@
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    @apply h-full;
+    @apply w-full;
   }
 
   code {
