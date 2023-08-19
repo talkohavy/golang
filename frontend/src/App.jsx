@@ -1,11 +1,19 @@
 import React from 'react';
-import RepoList from './components/RepoList';
+import { Route, Routes } from 'react-router-dom';
+import GitHubReposPage from './pages/GitHubReposPage';
+import PageNotFound from './pages/PageNotFound';
+import TvShowsPage from './pages/TvShowsPage';
 
 function App() {
   return (
     <div>
-      <div className='border-t-2 border-t-[#8eb8d8]'></div>
-      <RepoList />
+      <Routes>
+        <Route path='/index.html' element={<GitHubReposPage />} />
+        <Route path='/' element={<GitHubReposPage />} />
+        <Route path='/tv-shows' element={<TvShowsPage />} />
+
+        <Route path='*' element={<PageNotFound />} />
+      </Routes>
     </div>
   );
 }
