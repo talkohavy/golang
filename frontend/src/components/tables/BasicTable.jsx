@@ -133,9 +133,9 @@ function BasicTable(
   return (
     <div className={clsx('overflow-auto flex flex-col', className)}>
       <div
-        ref={tableParentRef}
         onScroll={(e) => fetchMoreOnBottomReached(e.target)}
-        className='border border-gray-300 h-auto max-h-[300px] overflow-auto'
+        className='w-full border border-gray-300 h-auto max-h-[300px] overflow-auto'
+        ref={tableParentRef}
       >
         <table className='custom'>
           <thead>

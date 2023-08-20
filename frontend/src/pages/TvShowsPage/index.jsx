@@ -29,7 +29,7 @@ export default function TvShowsPage() {
   }, [searchText]);
 
   return (
-    <div className='flex flex-col gap-5 max-w-[1280px] mt-10'>
+    <div className='flex flex-col gap-10 w-full p-10'>
       <Input
         value={searchText}
         setValue={setSearchText}
