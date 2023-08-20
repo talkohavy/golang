@@ -22,14 +22,15 @@ const linksRaw = [
 export default function Header() {
   const { pathname } = useLocation();
 
-  const headerLinks = useMemo(() => {
-    console.log('got here again');
-    return linksRaw.map(({ checkIsCurrentPage, to, text }) => ({
-      isCurrentPage: checkIsCurrentPage({ pathname }),
-      to,
-      text,
-    }));
-  }, [pathname]);
+  const headerLinks = useMemo(
+    () =>
+      linksRaw.map(({ checkIsCurrentPage, to, text }) => ({
+        isCurrentPage: checkIsCurrentPage({ pathname }),
+        to,
+        text,
+      })),
+    [pathname]
+  );
 
   //------------------- Render GUI ---------------------
   return (

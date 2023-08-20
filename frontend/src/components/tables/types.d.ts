@@ -19,6 +19,9 @@ type BasicTable = {
   onCellClick?: (data: any) => void;
   setSearchText?: (value: any) => void;
   renderTableFooter?: (props: any) => ReactNode;
+  onBottomReached?: () => void;
+  isFetching?: boolean;
+  className?: string;
 };
 
 export { BasicTable, DefaultColumn };

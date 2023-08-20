@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RESULTS_COUNT = [10, 20, 30, 40, 50];
+const RESULTS_COUNT = [10, 20, 50, 'All'];
 
 /** @param { Partial<import('@tanstack/react-table').Table> } props */
 export default function TableFooter({
@@ -56,11 +56,15 @@ export default function TableFooter({
         </span>
         <select
           value={getState().pagination.pageSize}
-          onChange={(e) => setPageSize(Number(e.target.value))}
+          onChange={(e) => {
+            const pageSize = Number(e.target.value);
+            setPageSize(isNaN(pageSize) ? Number.MAX_SAFE_INTEGER : pageSize);
+          }}
           className='border h-8 rounded-md'
         >
           {RESULTS_COUNT.map((pageSize) => (
-            <option key={pageSize} value={pageSize}>
+            // @ts-ignore
+            <option key={pageSize} value={isNaN(pageSize) ? Number.MAX_SAFE_INTEGER : pageSize}>
               Show {pageSize}
             </option>
           ))}
