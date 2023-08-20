@@ -4,7 +4,7 @@ import { createColumnHelper } from '@tanstack/react-table';
 import AnchorLink from '../../components/AnchorLink';
 import Input from '../../components/Input';
 import BasicTable from '../../components/tables/BasicTable';
-import TableFooter from '../../components/tables/DefaultTableFooter';
+import TableFooter from '../../components/tables/DefaultTableFooter/index';
 import PageHeader from './PageHeader';
 
 /**

@@ -33,7 +33,10 @@ export default function Input({ value: outerValue, setValue, placeholder, deboun
         setInnerValue(e.target.value);
         setOuterValue(e.target.value);
       }}
-      className={clsx('w-full h-10 border border-black rounded-md px-1', className)}
+      className={clsx(
+        'w-full h-10 border border-black rounded-md hover:border-blue-400 focus:border-blue-600 px-2',
+        className
+      )}
     />
   );
 }

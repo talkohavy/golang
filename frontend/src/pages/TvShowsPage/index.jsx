@@ -3,7 +3,8 @@ import axios from 'axios';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
 import { destructResponseData } from './helpers';
-import TableView from './TableView';
+import CardsView from './Views/CardsView';
+import TableView from './Views/TableView';
 
 const viewOptions = [
   { value: 'table', label: 'Table' },
@@ -12,15 +13,13 @@ const viewOptions = [
 
 const viewRenderer = {
   table: (props) => <TableView {...props} />,
-  cards: (props) => <TableView {...props} />,
+  cards: (props) => <CardsView {...props} />,
 };
 
 export default function TvShowsPage() {
   const [viewType, setViewType] = useState(viewOptions[0].value);
   const [searchText, setSearchText] = useState('');
   const [tvShows, setTvShows] = useState([]);
-
-  console.log('viewType is:', viewType);
 
   useEffect(() => {
     const fetchShows = async (page) =>
@@ -41,7 +40,7 @@ export default function TvShowsPage() {
 
   return (
     <div className='flex flex-col gap-10 w-full p-10'>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center justify-between gap-2'>
         <Input
           value={searchText}
           setValue={setSearchText}

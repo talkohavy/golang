@@ -1,5 +1,6 @@
 import React from 'react';
-import Select from '../Select';
+import Select from '../../Select';
+import DefaultTableFooterButton from './DefaultTableFooterButton';
 
 const RESULT_COUNT_OPTIONS = [
   { key: 1, value: 10, label: 'Show 10' },
@@ -26,25 +27,14 @@ export default function TableFooter({
       <div>{getRowModel().rows.length} Rows</div>
 
       <div className='flex items-center gap-2'>
-        <button className='border rounded p-1' onClick={() => setPageIndex(0)} disabled={!getCanPreviousPage()}>
-          {'<<'}
-        </button>
-
-        <button className='border rounded p-1' onClick={() => previousPage()} disabled={!getCanPreviousPage()}>
-          {'<'}
-        </button>
-
-        <button className='border rounded p-1' onClick={() => nextPage()} disabled={!getCanNextPage()}>
-          {'>'}
-        </button>
-
-        <button
-          className='border rounded p-1'
+        <DefaultTableFooterButton text={'<<'} onClick={() => setPageIndex(0)} isDisabled={!getCanPreviousPage()} />
+        <DefaultTableFooterButton text={'<'} onClick={previousPage} isDisabled={!getCanPreviousPage()} />
+        <DefaultTableFooterButton text={'>'} onClick={nextPage} isDisabled={!getCanNextPage()} />
+        <DefaultTableFooterButton
+          text={'>>'}
           onClick={() => setPageIndex(getPageCount() - 1)}
-          disabled={!getCanNextPage()}
-        >
-          {'>>'}
-        </button>
+          isDisabled={!getCanNextPage()}
+        />
 
         <span className='flex items-center gap-1'>
           <div>Page</div>
@@ -60,9 +50,9 @@ export default function TableFooter({
             defaultValue={getState().pagination.pageIndex + 1}
             onChange={(e) => {
               const page = e.target.value ? Number(e.target.value) - 1 : 0;
-              setPageIndex(page);
+              setPageIndex(Math.max(page, 0));
             }}
-            className='border p-1 rounded w-16'
+            className='border p-1 rounded w-16 hover:border-blue-400 focus:border-blue-600'
           />
         </span>
 
